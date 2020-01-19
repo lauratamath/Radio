@@ -1,7 +1,7 @@
 //Laura Tamath 19365
 //Orlando Cabrera 19943
 
-import java.util.Random; //Al encenderlo, tira un número aleatorio de alguna estación
+//import java.util.Random; //Al encenderlo, tira un número aleatorio de alguna estación
 public class RadioLo implements InRadio{
 	//Declaración de variables
 	private boolean encendido;//Indica si la radio esta encendida o apagada
@@ -14,22 +14,33 @@ public class RadioLo implements InRadio{
 	private int numeroEstacion; // Indica en que numero esta de la estacion (0-19)
 
 	public RadioLo () {
-		boolean encendido = false;
+		encendido = true;
 		estacionAm = new String [20];
 		estacionFm = new String [20];
 		favAm = new String [12];
 		favFM = new String [12];
 		estacionActual = "";
 		numeroEstacion = 0;
-		//Ciclo para crear nombres genericos para las estaciones 
+		amFM = true;
+		//Ciclo para crear nombres genericos para las listas 
 		for (int i = 0; i<estacionAm.length;i++) {
 			int a = i + 1;
-			estacionAm[i] = "Estacion " + a + "AM";
+			estacionAm[i] = "Estacion " + a + " AM";
 			
 		}
 		for (int i = 0; i<estacionFm.length;i++) {
 			int a = i + 1;
-			estacionFm[i] = "Estacion " + a + "FM";
+			estacionFm[i] = "Estacion " + a + " FM";
+			
+		}
+		for (int i = 0; i<favAm.length;i++) {
+			int a = i + 1;
+			favAm[i] = "Estacion " + a + " AM";
+			
+		}
+		for (int i = 0; i<favFM.length;i++) {
+			int a = i + 1;
+			favFM[i] = "Estacion " + a + " AM";
 			
 		}
 		////////////////
@@ -42,6 +53,13 @@ public class RadioLo implements InRadio{
 	 */
 	public String estacionActual() {
 		// TODO Auto-generated method stub
+		if (amFM == true) {
+		estacionActual = estacionAm [numeroEstacion];
+		}
+		if (amFM == false) {
+			estacionActual = estacionFm [numeroEstacion];
+			}
+		
 		return estacionActual;
 	}
 	@Override
@@ -57,10 +75,10 @@ public class RadioLo implements InRadio{
 	 * Metodo para encender o apagar la radio
 	 */
 	public void onOff() {
-		if (encendido = true) {
+		if (encendido == true) {
 			encendido = false;
 		}
-		if (encendido = false) {
+		if (encendido == false) {
 			encendido = true;
 		}
 		
@@ -70,12 +88,14 @@ public class RadioLo implements InRadio{
 	 * Metodo para cambiar de frecuencia Am a Fm y viceversa
 	 */
 	public void cambiarFrecuencia() {
-		if (amFM = true) {
-			amFM = false;
+		boolean frecuencia = true;
+		if (amFM == true) {
+			frecuencia = false;
 		}
-		if (amFM = false) {
-			amFM = true;
+		if (amFM == false) {
+			frecuencia = true;
 		}
+		amFM = frecuencia;
 		
 	}
 	@Override
@@ -85,10 +105,10 @@ public class RadioLo implements InRadio{
 		if (numeroEstacion > 19) {
 			numeroEstacion = 0;
 		}
-		if (amFM = true) {
+		if (amFM == true) {
 			estacionActual = estacionAm [numeroEstacion];
 		}
-		if (amFM = false) {
+		if (amFM == false) {
 			estacionActual = estacionFm [numeroEstacion];
 		}
 		
@@ -100,11 +120,11 @@ public class RadioLo implements InRadio{
 	 */
 	public void guardar(int boton) {
 		// TODO Auto-generated method stub
-		if (amFM = true) {
-			favAm [boton] = estacionActual;
+		if (amFM == true) {
+			favAm [boton - 1] = estacionActual;
 		}
-		if (amFM = false) {
-			favFM [boton] = estacionActual;
+		if (amFM == false) {
+			favFM [boton - 1] = estacionActual;
 		}
 		
 	}
@@ -113,17 +133,17 @@ public class RadioLo implements InRadio{
 	 * Cambia directamente la estacion con alguna estacion favorita
 	 */
 	public void seleccionarEmisora(int boton) {
-		if (amFM = true) {
-			estacionActual = estacionAm [boton];
+		if (amFM == true) {
+			estacionActual = favAm [boton - 1];
 			//Ciclo para cambiar el numero de estacion 
 			for (int i = 0; i<estacionAm.length;i++) {
-				if (estacionAm[i] == estacionActual()) {
-					numeroEstacion = i;
+				if (estacionAm[i ] == estacionActual()) {
+					numeroEstacion = i ;
 				}
 			}
 		}
-		if (amFM = false) {
-			estacionActual = estacionFm [boton];
+		if (amFM == false) {
+			estacionActual = favFM [boton - 1];
 			//Ciclo para cambiar el numero de estacion 
 			for (int i = 0; i<estacionAm.length;i++) {
 				if (estacionAm[i] == estacionActual()) {
@@ -133,6 +153,12 @@ public class RadioLo implements InRadio{
 		}
 		
 	}
+	//borrar despues
+	public String getCancion (int i) {
+		return favAm[i-1];
+	}
+	
+	
 	
 		
 
