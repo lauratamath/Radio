@@ -9,7 +9,7 @@ public class RadioLo implements InRadio{
 	private String[] estacionFm; //Indica las estacione existentes
 	private String[] favFM; //guarda las estaciones favoritas de Fm
 	private String[] favAm; //guarda las estaciones favoritas de Am
-	private boolean amFM; //indica en qué frecuencia est� (true para Am y false para Fm)
+	private boolean amFM; //indica en qué frecuencia est?(true para Am y false para Fm)
 	private String estacionActual; //La estacion que esta sonando actualmente
 	private int numeroEstacion; // Indica en que numero esta de la estacion (0-19)
 
@@ -153,14 +153,4 @@ public class RadioLo implements InRadio{
 		}
 		
 	}
-	//borrar despues
-	public String getCancion (int i) {
-		return favAm[i-1];
-	}
-	
-	
-	
-		
-
-	
 } /////////////////////////////////////////////////////////////
