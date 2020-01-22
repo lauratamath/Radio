@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 //Laura Tamath 19365
 //Orlando Cabrera 19943
 
@@ -12,7 +14,7 @@ public class RadioLo implements InRadio{
 	private boolean amFM; //indica en qué frecuencia est?(true para Am y false para Fm)
 	private String estacionActual; //La estacion que esta sonando actualmente
 	private int numeroEstacion; // Indica en que numero esta de la estacion (0-19)
-
+	
 	public RadioLo () {
 		encendido = true;
 		estacionAm = new String [20];
@@ -22,25 +24,31 @@ public class RadioLo implements InRadio{
 		estacionActual = "";
 		numeroEstacion = 0;
 		amFM = true;
-		//Ciclo para crear nombres genericos para las listas 
+		
+		
+		//Ciclo para crear los nombres de las estaciones
+		int a = 600;
+		double b = 835;
+		int c = 0;
+		DecimalFormat df = new DecimalFormat("#.0");
 		for (int i = 0; i<estacionAm.length;i++) {
-			int a = i + 1;
-			estacionAm[i] = "Estacion " + a + " AM";
+			a += 10;
+			estacionAm[i] =  a + " AM";
 			
 		}
 		for (int i = 0; i<estacionFm.length;i++) {
-			int a = i + 1;
-			estacionFm[i] = "Estacion " + a + " FM";
+			b += 0.2;
+			estacionFm[i] = df.format(b) + " FM";
 			
 		}
 		for (int i = 0; i<favAm.length;i++) {
-			int a = i + 1;
-			favAm[i] = "Estacion " + a + " AM";
+			c = i + 1;
+			favAm[i] = "Estacion " + c + " AM";
 			
 		}
 		for (int i = 0; i<favFM.length;i++) {
-			int a = i + 1;
-			favFM[i] = "Estacion " + a + " AM";
+			c = i + 1;
+			favFM[i] = "Estacion " + c + " AM";
 			
 		}
 		////////////////
@@ -129,15 +137,16 @@ public class RadioLo implements InRadio{
 		
 	}
 	@Override
-	/*
+	/**
+	 * 
 	 * Cambia directamente la estacion con alguna estacion favorita
-	 */
+	 **/
 	public void seleccionarEmisora(int boton) {
 		if (amFM == true) {
 			estacionActual = favAm [boton - 1];
 			//Ciclo para cambiar el numero de estacion 
 			for (int i = 0; i<estacionAm.length;i++) {
-				if (estacionAm[i ] == estacionActual()) {
+				if (estacionAm[i] == estacionActual) {
 					numeroEstacion = i ;
 				}
 			}
@@ -146,7 +155,7 @@ public class RadioLo implements InRadio{
 			estacionActual = favFM [boton - 1];
 			//Ciclo para cambiar el numero de estacion 
 			for (int i = 0; i<estacionAm.length;i++) {
-				if (estacionAm[i] == estacionActual()) {
+				if (estacionAm[i] == estacionActual) {
 					numeroEstacion = i;
 				}
 			}
