@@ -15,11 +15,11 @@ public class Main{
 	public static void main (String args []){
 		if (estado == false) {
 			System.out.println("Radio apagado");
-			
 				do {
 					try {
 						System.out.println("1.Escuchar musica: ");						
 						n = sc.nextInt();
+						radio.onOff();
 						if (n == 1) {
 							break;
 						}
@@ -106,7 +106,7 @@ public class Main{
 			
 				if(k==1){
 					radio.onOff();
-					n =6;
+					n = 6;
 					active = false;
 				}
 				else if(k==2){
