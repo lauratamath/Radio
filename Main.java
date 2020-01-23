@@ -20,6 +20,7 @@ public class Main{
 					try {
 						System.out.println("1.Escuchar musica: ");						
 						n = sc.nextInt();
+						radio.onOff();
 						if (n == 1) {
 							break;
 						}
