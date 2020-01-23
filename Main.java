@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main{
 	static Scanner sc = new Scanner(System.in);
-	static RadioLo radio = new RadioLo();
+	static InRadio radio = new RadioLo();
 	//public Vista view = Vista();
 	static boolean estado = radio.estado();
 	static int n = 0;
