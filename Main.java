@@ -15,7 +15,7 @@ public class Main{
 	public static void main (String args []){
 		if (estado == false) {
 			System.out.println("Radio apagado");
-			while (n<2 ) {
+			
 				do {
 					try {
 						System.out.println("1.Escuchar musica: ");						
@@ -30,7 +30,7 @@ public class Main{
 					} 
 					while (n > 1||n < 0);
 			}
-		}
+		
 		System.out.println("Radio esta encendido");
 		
 		while (n<6) {
