@@ -56,7 +56,7 @@ public class RadioLo implements InRadio{
 	//Metodos------------------------------------------
 
 	@Override
-	/*
+	/**
 	 * Muesta la estacion que esta sonando actualmente
 	 */
 	public String estacionActual() {
@@ -92,7 +92,7 @@ public class RadioLo implements InRadio{
 		
 	}
 	@Override
-	/*
+	/**
 	 * Metodo para cambiar de frecuencia Am a Fm y viceversa
 	 */
 	public void cambiarFrecuencia() {
@@ -123,7 +123,7 @@ public class RadioLo implements InRadio{
 		
 	}
 	@Override
-	/*
+	/**
 	 * Guarda la estacion que esta sonando actualmente en los botones de "favoritos"
 	 */
 	public void guardar(int boton) {
